@@ -3,21 +3,28 @@
 var ApiContracts = require("authorizenet").APIContracts;
 var ApiControllers = require("authorizenet").APIControllers;
 var SDKConstants = require("authorizenet").Constants;
-// var constants = require("../constants.js"); --> DOTENV instead
-require("dotenv").config();
+// var utils = require("../utils.js");
+// var constants = require("../constants.js");
 
-function chargeCreditCard(callback) {
+function chargeCreditCard(callback: (res: {}) => {}) {
+  // console.log(
+  //   "env",
+  //   process.env.AUTHORIZENET_API_LOGIN_ID,
+  //   process.env.AUTHORIZENET_TRANSACTION_KEY
+  // );
+
   var merchantAuthenticationType =
     new ApiContracts.MerchantAuthenticationType();
-  merchantAuthenticationType.setName(process.env.AUTHORIZENET_API_LOGIN_ID);
-  merchantAuthenticationType.setTransactionKey(
-    process.env.AUTHORIZENET_TRANSACTION_KEY
-  );
+  merchantAuthenticationType.setName("2Yw84gB5");
+  merchantAuthenticationType.setTransactionKey("3Zc534H5t5b5E3JY");
+  //   new ApiContracts.MerchantAuthenticationType();
+  // merchantAuthenticationType.setName("5KP3u95bQpv");
+  // merchantAuthenticationType.setTransactionKey("346HZ32z3fP4hTG2");
 
   var creditCard = new ApiContracts.CreditCardType();
   creditCard.setCardNumber("5424000000000015");
   creditCard.setExpirationDate("0825");
-  creditCard.setCardCode("999");
+  creditCard.setCardCode("931");
 
   var paymentType = new ApiContracts.PaymentType();
   paymentType.setCreditCard(creditCard);
@@ -117,7 +124,7 @@ function chargeCreditCard(callback) {
     ApiContracts.TransactionTypeEnum.AUTHCAPTURETRANSACTION
   );
   transactionRequestType.setPayment(paymentType);
-  transactionRequestType.setAmount("4.20");
+  transactionRequestType.setAmount((Math.random() * 100 + 1).toFixed(2));
   transactionRequestType.setLineItems(lineItems);
   transactionRequestType.setUserFields(userFields);
   transactionRequestType.setOrder(orderDetails);
@@ -133,7 +140,7 @@ function chargeCreditCard(callback) {
   createRequest.setTransactionRequest(transactionRequestType);
 
   //pretty print request
-  console.log(JSON.stringify(createRequest.getJSON(), null, 2));
+  // console.log(JSON.stringify(createRequest.getJSON(), null, 2));
 
   var ctrl = new ApiControllers.CreateTransactionController(
     createRequest.getJSON()
@@ -147,7 +154,7 @@ function chargeCreditCard(callback) {
     var response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
     //pretty print response
-    console.log(JSON.stringify(response, null, 2));
+    // console.log(JSON.stringify(response, null, 2));
 
     if (response != null) {
       if (
@@ -237,12 +244,12 @@ function chargeCreditCard(callback) {
 
     callback(response);
   });
-} //CHARGE CREDIT CARD function
+} //CHARGE CREDIT CARD
 
 // if (require.main === module) {
-//   chargeCreditCard(function () {
-//     console.log("chargeCreditCard call complete.");
-//   });
+// 	chargeCreditCard(function(){
+// 		console.log('chargeCreditCard call complete.');
+// 	});
 // }
 
-module.exports.chargeCreditCard = chargeCreditCard;
+module.exports = chargeCreditCard;

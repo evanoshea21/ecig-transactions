@@ -1,3 +1,4 @@
+// RUN WITH ts-node (built into nodemon) -> "npx nodemon server/index.ts"
 const express = require("express");
 //express dependencies
 require("dotenv").config();
@@ -6,7 +7,7 @@ const bodyParser = require("body-parser"); //parses json
 const cors = require("cors"); // sets CORS headers
 
 //UTILS imported (functions to charge credit card)
-const AnetUtils = require("./AnetUtils.js");
+const chargeCard = require("./ChargeCard");
 
 const app = express(); // init express server
 
@@ -20,12 +21,16 @@ app.use(cors());
 //ROUTES
 // get, post (for transactions)
 
-app.get("/", (req, res) => {
+app.get("/", (req: any, res: any) => {
   // charge credit card
-  AnetUtils.chargeCreditCard(function () {
-    console.log("chargeCreditCard call complete.");
+  chargeCard(function (response: any) {
+    console.log(
+      "chargeCreditCard RESPONSE\n==================================",
+      response
+    );
     res.send("server pong");
   });
+  // res.send("server pong");
 });
 
 //UTILS
