@@ -18,3 +18,5 @@ Now you can call API by clicking UI button on localhost server in browser.
 3. Add/Delete [Payment Profile](https://developer.authorize.net/api/reference/index.html#customer-profiles-create-customer-payment-profile:~:text=RESPONSE%20FIELD%20DESCRIPTION-,Create%20Customer%20Payment%20Profile,-Use%20this%20function) to CustomerProfile
 4. Add/Delete [Shipping Profile](https://developer.authorize.net/api/reference/index.html#customer-profiles-create-customer-shipping-address:~:text=RESPONSE%20FIELD%20DESCRIPTION-,Create%20Customer%20Shipping%20Address,-Use%20this%20function) to CustomerProfile
 5. Implement [CHARGE A CUSTOMER PROFILE](https://developer.authorize.net/api/reference/index.html#payment-transactions-charge-a-customer-profile:~:text=RESPONSE%20FIELD%20DESCRIPTION-,Charge%20a%20Customer%20Profile,-Use%20this%20method) to use secured PCI Customer-Info-Manager by authorize to issue a transaction by retrieving credit card info from their servers
+
+![Graphic](/public/customerProfile.jpg)

@@ -7,6 +7,14 @@ export default function Home() {
     <div className={classes.main}>
       <p>Hello world, testing transactions here</p>
       <TransactionButton />
+      <img
+        style={{
+          margin: "0 40px",
+        }}
+        width="700px"
+        alt="graphic"
+        src="/customerProfile.jpg"
+      />
     </div>
   );
 }
