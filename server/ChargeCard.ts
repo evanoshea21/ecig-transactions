@@ -15,8 +15,10 @@ function chargeCreditCard(callback: (res: {}) => {}) {
 
   var merchantAuthenticationType =
     new ApiContracts.MerchantAuthenticationType();
-  merchantAuthenticationType.setName("2Yw84gB5");
-  merchantAuthenticationType.setTransactionKey("3Zc534H5t5b5E3JY");
+  merchantAuthenticationType.setName(process.env.AUTHORIZENET_API_LOGIN_ID);
+  merchantAuthenticationType.setTransactionKey(
+    process.env.AUTHORIZENET_TRANSACTION_KEY
+  );
   //   new ApiContracts.MerchantAuthenticationType();
   // merchantAuthenticationType.setName("5KP3u95bQpv");
   // merchantAuthenticationType.setTransactionKey("346HZ32z3fP4hTG2");
