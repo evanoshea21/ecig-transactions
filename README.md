@@ -1,6 +1,6 @@
 ## Overview
 
-This is a repo to test Authorize.net's SDK functions to complete transactions and to store user information in
+This is a repo to test Authorize.net's SDK functions to complete transactions and to store sensitive user info in their PCI-approved CIM database (customer info manager).
 
 The code is written in a basic React frontend bootstrapped by Next.js.
 The backend is a node-express server written in typescript.
