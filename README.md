@@ -13,7 +13,7 @@ Now you can call API by clicking UI button on localhost server in browser.
 
 ## Tasks to get Done
 
-1. Implemment [Charge Credit Card]() [DONE]
+1. Implemment [Charge Credit Card](https://developer.authorize.net/api/reference/index.html#payment-transactions-charge-a-credit-card:~:text=Payment%20Transactions%20page.-,Charge%20a%20Credit%20Card,-Use%20this%20method) [DONE]
 2. Implement [Create Customer Profile](https://developer.authorize.net/api/reference/index.html#customer-profiles-create-customer-profile:~:text=Create%20Customer%20Profile) - Dev [Guide](https://developer.authorize.net/api/reference/features/customer-profiles.html)
 3. Add/Delete [Payment Profile](https://developer.authorize.net/api/reference/index.html#customer-profiles-create-customer-payment-profile:~:text=RESPONSE%20FIELD%20DESCRIPTION-,Create%20Customer%20Payment%20Profile,-Use%20this%20function) to CustomerProfile
 4. Add/Delete [Shipping Profile](https://developer.authorize.net/api/reference/index.html#customer-profiles-create-customer-shipping-address:~:text=RESPONSE%20FIELD%20DESCRIPTION-,Create%20Customer%20Shipping%20Address,-Use%20this%20function) to CustomerProfile
